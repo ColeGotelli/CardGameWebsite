@@ -13,7 +13,7 @@
 			return {name:this.name, suit:this.suit, value:this.value}
 		}
 
-		let values = ['2','3','4','5','6','7','8','9','10','J','Q','K','A']
+		let values = ['2','3','4','5','6','7','8','9','10','Jack','Queen','King','Ace']
 		let suits = ['Clubs','Diamonds','Spades','Hearts']
 
 		for(let s = 0; s < suits.length; ++s) {
@@ -45,11 +45,20 @@
 		}
 	}
 
-	deal() {
+	dealCard() {
 		let dealtCard = this.deck.shift()
 		this.dealtCards.push(dealtCard)
 		return dealtCard
 
+	}
+
+	dealHand(numCards) {
+		var hand = [];
+		for(var i = 0; i < numCards; ++i) {
+			hand[i] = this.dealCard();
+		}
+
+		return hand;
 	}
 
 	replace() {
